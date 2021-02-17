@@ -1,7 +1,8 @@
 ﻿namespace NModbus.Extensions.Functions
 {
   using System;
-  using System.IO;
+    using System.Collections.Generic;
+    using System.IO;
   using System.Linq;
 
   /// <summary>
@@ -107,7 +108,7 @@
         for (var index = 0; index < byteValueArrays.Length; index++)
         {
           var offset = index * bytesPerWord;
-          byteValueArrays[index] = new ArraySegment<byte>(byteArray, offset, bytesPerWord).ToArray();
+          byteValueArrays[index] = new ArraySegment<byte>(byteArray, offset, bytesPerWord).Array;
         }
         return byteValueArrays;
       }
@@ -187,8 +188,11 @@
       {
         var offset = index * registerMultiplier;
         var segment = new ArraySegment<ushort>(registers, offset, registerMultiplier);
-        var bytes = segment.SelectMany(BitConverter.GetBytes).ToArray();
-        values[index] = bytes;
+                List<byte> bytes = new List<byte>();
+                foreach (var us in segment.Array)
+                    bytes.AddRange(BitConverter.GetBytes(us));
+                //var bytes = segment.SelectMany(BitConverter.GetBytes).ToArray();
+                values[index] = bytes.ToArray();
       }
       return values;
     }

@@ -51,7 +51,7 @@ namespace NModbus.IO
             // compare checksum
             if (CheckFrame && !ChecksumsMatch(response, frame))
             {
-                string msg = $"Checksums failed to match {string.Join(", ", response.MessageFrame)} != {string.Join(", ", frame)}";
+                string msg = $"Checksums failed to match {response.MessageFrame} != {frame}";
                 Logger.Warning(msg);
                 throw new IOException(msg);
             }

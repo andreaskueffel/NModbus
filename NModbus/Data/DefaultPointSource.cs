@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using NModbus.Extensions;
 using NModbus.Unme.Common;
 
 namespace NModbus.Data

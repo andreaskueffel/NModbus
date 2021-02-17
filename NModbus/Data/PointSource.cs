@@ -1,4 +1,5 @@
 ﻿using NModbus.Device;
+using NModbus.Extensions;
 using NModbus.Unme.Common;
 using System;
 using System.Linq;

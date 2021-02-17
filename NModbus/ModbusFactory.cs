@@ -80,34 +80,7 @@ namespace NModbus
             }
         }
 
-        public IModbusSlave CreateSlave(byte unitId, ISlaveDataStore dataStore = null)
-        {
-            if (dataStore == null)
-                dataStore = new DefaultSlaveDataStore();
-
-            return new ModbusSlave(unitId, dataStore, GetAllFunctionServices());
-        }
-
-        public IModbusSlaveNetwork CreateSlaveNetwork(IModbusRtuTransport transport)
-        {
-            return new ModbusSerialSlaveNetwork(transport, this, Logger);
-        }
-
-        public IModbusSlaveNetwork CreateSlaveNetwork(IModbusAsciiTransport transport)
-        {
-            return new ModbusSerialSlaveNetwork(transport, this, Logger);
-        }
-
-        public IModbusSlaveNetwork CreateSlaveNetwork(TcpListener tcpListener)
-        {
-            return new ModbusTcpSlaveNetwork(tcpListener, this, Logger);
-        }
-
-        public IModbusSlaveNetwork CreateSlaveNetwork(UdpClient client)
-        {
-            return new ModbusUdpSlaveNetwork(client, this, Logger);
-        }
-
+       
         public IModbusRtuTransport CreateRtuTransport(IStreamResource streamResource)
         {
             return new ModbusRtuTransport(streamResource, this, Logger);

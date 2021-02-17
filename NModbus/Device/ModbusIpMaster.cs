@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Threading.Tasks;
+
 
 namespace NModbus.Device
 {
@@ -30,16 +30,7 @@ namespace NModbus.Device
             return base.ReadCoils(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
         }
 
-        /// <summary>
-        ///    Asynchronously reads from 1 to 2000 contiguous coils status.
-        /// </summary>
-        /// <param name="startAddress">Address to begin reading.</param>
-        /// <param name="numberOfPoints">Number of coils to read.</param>
-        /// <returns>A task that represents the asynchronous read operation.</returns>
-        public Task<bool[]> ReadCoilsAsync(ushort startAddress, ushort numberOfPoints)
-        {
-            return base.ReadCoilsAsync(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
-        }
+        
 
         /// <summary>
         ///    Reads from 1 to 2000 contiguous discrete input status.
@@ -52,16 +43,7 @@ namespace NModbus.Device
             return base.ReadInputs(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
         }
 
-        /// <summary>
-        ///    Asynchronously reads from 1 to 2000 contiguous discrete input status.
-        /// </summary>
-        /// <param name="startAddress">Address to begin reading.</param>
-        /// <param name="numberOfPoints">Number of discrete inputs to read.</param>
-        /// <returns>A task that represents the asynchronous read operation.</returns>
-        public Task<bool[]> ReadInputsAsync(ushort startAddress, ushort numberOfPoints)
-        {
-            return base.ReadInputsAsync(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
-        }
+        
 
         /// <summary>
         ///    Reads contiguous block of holding registers.
@@ -74,17 +56,7 @@ namespace NModbus.Device
             return base.ReadHoldingRegisters(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
         }
 
-        /// <summary>
-        ///    Asynchronously reads contiguous block of holding registers.
-        /// </summary>
-        /// <param name="startAddress">Address to begin reading.</param>
-        /// <param name="numberOfPoints">Number of holding registers to read.</param>
-        /// <returns>A task that represents the asynchronous read operation.</returns>
-        public Task<ushort[]> ReadHoldingRegistersAsync(ushort startAddress, ushort numberOfPoints)
-        {
-            return base.ReadHoldingRegistersAsync(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
-        }
-
+       
         /// <summary>
         ///    Reads contiguous block of input registers.
         /// </summary>
@@ -96,16 +68,7 @@ namespace NModbus.Device
             return base.ReadInputRegisters(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
         }
 
-        /// <summary>
-        ///    Asynchronously reads contiguous block of input registers.
-        /// </summary>
-        /// <param name="startAddress">Address to begin reading.</param>
-        /// <param name="numberOfPoints">Number of holding registers to read.</param>
-        /// <returns>A task that represents the asynchronous read operation.</returns>
-        public Task<ushort[]> ReadInputRegistersAsync(ushort startAddress, ushort numberOfPoints)
-        {
-            return base.ReadInputRegistersAsync(Modbus.DefaultIpSlaveUnitId, startAddress, numberOfPoints);
-        }
+        
 
         /// <summary>
         ///    Writes a single coil value.
@@ -117,16 +80,7 @@ namespace NModbus.Device
             base.WriteSingleCoil(Modbus.DefaultIpSlaveUnitId, coilAddress, value);
         }
 
-        /// <summary>
-        ///    Asynchronously writes a single coil value.
-        /// </summary>
-        /// <param name="coilAddress">Address to write value to.</param>
-        /// <param name="value">Value to write.</param>
-        /// <returns>A task that represents the asynchronous write operation.</returns>
-        public Task WriteSingleCoilAsync(ushort coilAddress, bool value)
-        {
-            return base.WriteSingleCoilAsync(Modbus.DefaultIpSlaveUnitId, coilAddress, value);
-        }
+        
 
         /// <summary>
         ///     Write a single holding register.
@@ -138,16 +92,7 @@ namespace NModbus.Device
             base.WriteSingleRegister(Modbus.DefaultIpSlaveUnitId, registerAddress, value);
         }
 
-        /// <summary>
-        ///    Asynchronously writes a single holding register.
-        /// </summary>
-        /// <param name="registerAddress">Address to write.</param>
-        /// <param name="value">Value to write.</param>
-        /// <returns>A task that represents the asynchronous write operation.</returns>
-        public Task WriteSingleRegisterAsync(ushort registerAddress, ushort value)
-        {
-            return base.WriteSingleRegisterAsync(Modbus.DefaultIpSlaveUnitId, registerAddress, value);
-        }
+        
 
         /// <summary>
         ///     Write a block of 1 to 123 contiguous registers.
@@ -159,16 +104,7 @@ namespace NModbus.Device
             base.WriteMultipleRegisters(Modbus.DefaultIpSlaveUnitId, startAddress, data);
         }
 
-        /// <summary>
-        ///    Asynchronously writes a block of 1 to 123 contiguous registers.
-        /// </summary>
-        /// <param name="startAddress">Address to begin writing values.</param>
-        /// <param name="data">Values to write.</param>
-        /// <returns>A task that represents the asynchronous write operation.</returns>
-        public Task WriteMultipleRegistersAsync(ushort startAddress, ushort[] data)
-        {
-            return base.WriteMultipleRegistersAsync(Modbus.DefaultIpSlaveUnitId, startAddress, data);
-        }
+       
 
         /// <summary>
         ///     Force each coil in a sequence of coils to a provided value.
@@ -180,16 +116,7 @@ namespace NModbus.Device
             base.WriteMultipleCoils(Modbus.DefaultIpSlaveUnitId, startAddress, data);
         }
 
-        /// <summary>
-        ///    Asynchronously writes a sequence of coils.
-        /// </summary>
-        /// <param name="startAddress">Address to begin writing values.</param>
-        /// <param name="data">Values to write.</param>
-        /// <returns>A task that represents the asynchronous write operation</returns>
-        public Task WriteMultipleCoilsAsync(ushort startAddress, bool[] data)
-        {
-            return base.WriteMultipleCoilsAsync(Modbus.DefaultIpSlaveUnitId, startAddress, data);
-        }
+        
 
         /// <summary>
         ///     Performs a combination of one read operation and one write operation in a single MODBUS transaction.
@@ -214,27 +141,6 @@ namespace NModbus.Device
                 writeData);
         }
 
-        /// <summary>
-        ///    Asynchronously performs a combination of one read operation and one write operation in a single Modbus transaction.
-        ///    The write operation is performed before the read.
-        /// </summary>
-        /// <param name="startReadAddress">Address to begin reading (Holding registers are addressed starting at 0).</param>
-        /// <param name="numberOfPointsToRead">Number of registers to read.</param>
-        /// <param name="startWriteAddress">Address to begin writing (Holding registers are addressed starting at 0).</param>
-        /// <param name="writeData">Register values to write.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        public Task<ushort[]> ReadWriteMultipleRegistersAsync(
-            ushort startReadAddress,
-            ushort numberOfPointsToRead,
-            ushort startWriteAddress,
-            ushort[] writeData)
-        {
-            return base.ReadWriteMultipleRegistersAsync(
-                Modbus.DefaultIpSlaveUnitId,
-                startReadAddress,
-                numberOfPointsToRead,
-                startWriteAddress,
-                writeData);
-        }
+       
     }
 }

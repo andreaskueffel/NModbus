@@ -92,7 +92,7 @@ namespace NModbus.Logging
                 {
                     string prefix = frame.DoesCrcMatch() ? validPrefix : invalidPrefix;
 
-                    logger.Trace($"{prefix}: {string.Join(", ", frame)}");
+                    logger.Trace($"{prefix}: {frame}");
                 }
             }
         }

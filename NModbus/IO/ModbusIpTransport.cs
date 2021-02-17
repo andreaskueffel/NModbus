@@ -45,7 +45,6 @@ namespace NModbus.IO
                 numBytesRead += bRead;
             }
 
-            logger.Debug($"MBAP header: {string.Join(", ", mbapHeader)}");
             var frameLength = (ushort)IPAddress.HostToNetworkOrder(BitConverter.ToInt16(mbapHeader, 4));
             logger.Debug($"{frameLength} bytes in PDU.");
 
@@ -67,7 +66,6 @@ namespace NModbus.IO
 
             logger.Debug($"PDU: {frameLength}");
             var frame = mbapHeader.Concat(messageFrame).ToArray();
-            logger.Debug($"RX: {string.Join(", ", frame)}");
 
             return frame;
         }

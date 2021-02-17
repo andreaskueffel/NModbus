@@ -6,14 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace NModbus.Data
 {
     internal class FileRecordCollection : IModbusMessageDataCollection
     {
-        private IReadOnlyList<byte> networkBytes;
-        private IReadOnlyList<byte> dataBytes;
+        private IList<byte> networkBytes;
+        private IList<byte> dataBytes;
 
         public FileRecordCollection(ushort fileNumber, ushort startingAddress, byte[] data)
         {
@@ -74,7 +74,7 @@ namespace NModbus.Data
         /// <summary>
         ///  The bytes written to the extended memory file.
         /// </summary>
-        public IReadOnlyList<byte> DataBytes => dataBytes;
+        public IList<byte> DataBytes => dataBytes;
 
         public byte[] NetworkBytes => networkBytes.ToArray();
 
